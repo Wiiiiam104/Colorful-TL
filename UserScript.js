@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Colorful TL
 // @namespace    http://github.com/wiiiiam104
-// @version      0.2.1
+// @version      0.2.3
 // @description  Color Twitter's TL based on AC rating
 // @author       @Wiiiiam_104
 // @match        https://twitter.com/*
@@ -11,7 +11,10 @@
 
 (()=>{
   "use strict";
-  let storage = localStorage.ubuneci5$colorfulTl_colors ?? undefined;
+  let storage = localStorage.ubuneci5$colorfulTl_colors;
+  if(storage !== undefined){
+    storage = JSON.parse(storage);
+  }
 
   class TwitterList{
     constructor(listId, color){
@@ -68,7 +71,7 @@
   function main(){
     let latestUpdate = new Date(localStorage.ubuneci5$colorfulTl_latestUpdate) ?? 0;
     let now = new Date();
-    if(storage === undefined || now-latestUpdate > 14*24*60*60*1000){
+    if(storage === undefined || now - latestUpdate > 14*24*60*60*1000){
       updateStorage();
     }
 
