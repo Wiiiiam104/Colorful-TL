@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         Colorful TL
 // @namespace    http://github.com/wiiiiam104
-// @version      0.2.3
+// @version      0.2.4
 // @description  Color Twitter's TL based on AC rating
-// @author       @Wiiiiam_104
+// @author       Wiiiiam104
 // @match        https://twitter.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=twitter.com
 // @grant        none
