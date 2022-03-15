@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Colorful TL
 // @namespace    http://github.com/wiiiiam104
-// @version      0.2.0
+// @version      0.2.1
 // @description  Color Twitter's TL based on AC rating
 // @author       @Wiiiiam_104
 // @match        https://twitter.com/*
@@ -11,7 +11,7 @@
 
 (()=>{
   "use strict";
-  let storage=localStorage.ubuneci5$colorfulTl.colors;
+  let storage = localStorage.ubuneci5$colorfulTl_colors ?? undefined;
 
   class TwitterList{
     constructor(listId, color){
@@ -37,7 +37,7 @@
   function updateStorage(){
     console.log("start updating your storage <colorfulTl>");
 
-    localStorage.ubuneci5$colorfulTl.latestUpdate = new Date();
+    localStorage.ubuneci5$colorfulTl_latestUpdate = (new Date())-0;
     storage = {};
     let lists = [
       {id:"1265269317169340417", color:"gray"},
@@ -58,7 +58,7 @@
           f(++i);
         }, 1000);
       }else{
-        localStorage.ubuneci5$colorfulTl.colors = JSON.stringify(storage);
+        localStorage.ubuneci5$colorfulTl_colors = JSON.stringify(storage);
         console.log("finish updating your storage <colorfulTl>");
         return;
       }
@@ -66,7 +66,7 @@
   }
 
   function main(){
-    let latestUpdate = localStorage.ubuneci5$colorfulTl.latestUpdate ?? 0;
+    let latestUpdate = new Date(localStorage.ubuneci5$colorfulTl_latestUpdate) ?? 0;
     let now = new Date();
     if(storage === undefined || now-latestUpdate > 14*24*60*60*1000){
       updateStorage();
