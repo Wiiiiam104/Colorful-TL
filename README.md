@@ -1,4 +1,6 @@
 # Colorful-TL
+### GreasyFork版は[こちら](https://greasyfork.org/ja/scripts/441551-colorful-tl)<br>
+
 AtCoderのratingに基づいてTwitterのTimeLineを着色するUserScriptです.<br>
 TwitterAPIで@AtCoder_tlのリストを取得して2週間に1回自動更新されます.<br>
 
